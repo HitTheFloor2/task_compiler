@@ -1,0 +1,82 @@
+//编译入口
+compileUnit :=
+    <packageDeclaration> <importDeclaration>* <taskDeclaration>+ <end>
+//声明所在package
+packageDeclaration := 'package' <qualifiedName> ';'
+//声明import
+importDeclaration := 'import' <qualifiedName> ('.' '*')? ';'
+qualifiedName := <identifier> ('.' <identifier>)*
+
+//声明task
+taskDeclaration := <taskModifier>* 'task' <identifier> ('extends' <identifier>)? <taskBody>
+taskModifier := 'shared' | 'runnable'
+//task体，包括成员变量，成员task和方法
+taskBody := '{' <taskBodyDeclaration>* '}'
+taskBodyDeclaration := <localVarDeclaration>* <functionDeclaration>*
+//变量声明
+localVarDeclaration := <primitiveType> localVarDeclarationSingle (',' localVarDeclarationSingle)*';'
+localVarDeclarations := <localVarDeclaration>*
+localVarDeclarationSingle := <identifier> ('['<unsignedInt>?']')? ('=' <varInitializer>)?
+varInitializer := <arrayInitializer> | <expression>
+arrayInitializer := '{' (<varInitializer> (',' <varInitializer>)* )? '}'
+//函数声明
+functionDeclaration := <functionModifier> <Type> <identifier> <functionParameters> <functionBody>
+functionModifier := ''
+functionParameters := '(' <primitiveType>  <identifier> [','<primitiveType> <identifier>]* ')'
+functionBody := <blockCode>
+functionCallParameters := '(' <expression> [','<expression>]* ')'
+//块代码
+blockCode := '{' <blockStatement>* '}'
+//块语句
+blockStatement := <statement>
+//语句，包括条件，控制，循环(如果非block语句只代表一条)
+statement :=  <blockCode>
+            | <localVarDeclarations>
+            | 'if' <parExpression> <statement> ('else' <statement>)
+            | 'while' <parExpression> <statement>
+            | 'for' '(' <forControl>')' <statement>
+            | <assignStatement>
+            | 'return' <expression>
+            | 'continue' ';'
+            | 'break' ';'
+//for语句
+forControl := <forInit>? ';' <expression>? ';' <forUpdate>?
+forInit := <expressionList>
+forUpdate := <expressionList>
+//赋值语句
+assignStatement : assign ';'
+assign : <qualifiedName> '=' <expression>
+//函数返回
+functionReturn
+//表达式
+parExpression := '(' <expression> ')'
+expression := <expression>
+            | <expression> '[' <expression> ']'
+            | <expression> ('.' identifier)+
+            | <expression> ('++' | '--')
+            | ('++' | '--' | '!' ) <expression>
+            | <expression> <operator> <expression>
+            | '(' <expression> ')'
+            | <identifier> functionCallParameters?
+            | <stringLiteral>
+            | <int>
+            | <char>
+            | <booleanLiteral>
+expressionList := <expression> (',' <expression>)*
+//其他
+operator := '+' | '-' | '*' | '/' | '%' | '<' | '>' | '||' | '&&' | '==' | '!='
+digit := [0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9]
+letter := ['A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z']
+        | ['a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z']
+int := ['+'|'-']? <unsignedInt>
+unsignedInt :=
+    [1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9] [0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9]+
+identifier := [<letter> | '_'] [<letter> | <digit> | '_']*
+primitiveType := 'boolean' | 'char' | 'byte' | 'int' | 'float' | 'double' | 'string'
+booleanLiteral := 'true' | 'false'
+floatingPointLiteral := <unsignedInt> '.' <digit>*
+stringLiteral :=  '"' ( <escapeSequence> | ~('\\'|'"') )* '"'
+escapeSequence := '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
+
+
+
