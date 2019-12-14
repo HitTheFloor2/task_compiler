@@ -20,7 +20,7 @@ qualifiedName
     : Identifier ('.' Identifier)*
     ;
 
-taskDeclaration
+taskDeclaration 
     : 'task' Identifier taskBody
     ;
 
@@ -55,7 +55,7 @@ arrayInitializer
 
 functionDeclaration
     : functionModifier? (Type|qualifiedName)? Identifier functionParameters functionBody
-    ;
+    ; 
 
 functionModifier
     : 'shared' | 'sync'
@@ -74,7 +74,7 @@ functionBody
     ;
 blockCode
     : '{' blockStatement* '}'
-    ;
+    ; 
 
 blockStatement
     : statement
@@ -118,8 +118,8 @@ forUpdate
 localVar
     : Identifier ('[' localVar ']')? functionCallParameters? ('.' localVar)*
     ;
-assign
-    : localVar '=' expression
+assign 
+    : localVar '=' expression 
     ;
 assignStatement
     : assign ';'
@@ -141,8 +141,8 @@ expression
     | expression operator1
     | operator1 expression
     | expression '[' expression ']'
-    | '(' expression ')'
-    | localVar
+    | '(' expression ')' 
+    | localVar 
     | assign
     | Char
     | Int
@@ -158,8 +158,8 @@ operator2
     ;
 
 Type
-    : 'int'
-    | 'char'
+    : 'int' 
+    | 'char' 
     | 'float'
     | 'string'
     ;
