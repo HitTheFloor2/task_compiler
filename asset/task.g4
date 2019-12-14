@@ -13,26 +13,31 @@ packageDeclaration
     ;
 
 importDeclaration
-    :   'import' qualifiedName ('.' '*')? ';'
+    : 'import' qualifiedName ('.' '*')? ';'
     ;
 
 qualifiedName
-    :   Identifier ('.' Identifier)*
+    : Identifier ('.' Identifier)*
     ;
 
-taskDeclaration 
+taskDeclaration
     : 'task' Identifier taskBody
     ;
 
 taskBody
-    : '{' localVarDeclarations functionDeclaration* '}'
+    : '{' localTaskDeclaration* localVarDeclarations functionDeclaration* '}'
     ;
+
+localTaskDeclaration
+    : 'task' Identifier ';'
+    ;
+
 localVarDeclarations
     : localVarDeclaration*
     ;
 
 localVarDeclaration
-    : Type localVarDeclarationSingle (',' localVarDeclarationSingle)* ';'
+    : (Type | qualifiedName) localVarDeclarationSingle (',' localVarDeclarationSingle)* ';'
     ;
 
 localVarDeclarationSingle
@@ -49,14 +54,14 @@ arrayInitializer
 
 
 functionDeclaration
-    : functionModifier? Type? Identifier functionParameters functionBody
+    : functionModifier? (Type|qualifiedName)? Identifier functionParameters functionBody
     ;
 
 functionModifier
     : 'shared' | 'sync'
     ;
 functionParameters
-    : '(' Type Identifier (',' Type Identifier)* ')'
+    : '(' (Type|qualifiedName) Identifier (',' (Type|qualifiedName) Identifier)* ')'
     | '()'
     ;
 functionCallParameters
@@ -84,6 +89,7 @@ statement
     | breakStatement
     | continueStatement
     | returnStatement
+    | invokeStatement
     ;
 ifStatement
     : 'if' parExpression statement ('else' statement)?
@@ -109,14 +115,20 @@ forInit
 forUpdate
     : expressionList
     ;
+localVar
+    : Identifier ('[' localVar ']')? functionCallParameters? ('.' localVar)*
+    ;
 assign
-    : qualifiedName '=' expression
+    : localVar '=' expression
     ;
 assignStatement
     : assign ';'
     ;
 returnStatement
     : 'return' expression ';'
+    ;
+invokeStatement
+    : expression functionCallParameters';'
     ;
 parExpression
     : '(' expression ')'
@@ -126,15 +138,20 @@ expressionList
     ;
 expression
     : expression operator2 expression
+    | expression operator1
+    | operator1 expression
     | expression '[' expression ']'
     | '(' expression ')'
-    | qualifiedName functionCallParameters?
+    | localVar
     | assign
     | Char
     | Int
     | String
     ;
 
+operator1
+    : '++' | '--'
+    ;
 
 operator2
     : '+' | '-' | '*' | '/' | '%' | '<' | '>' | '||' | '&&' | '==' | '!='
@@ -144,7 +161,7 @@ Type
     : 'int'
     | 'char'
     | 'float'
-    | 'task'
+    | 'string'
     ;
 
 Identifier : Letter (Letter|Int)*;

@@ -67,6 +67,16 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitTaskBody(taskParser.TaskBodyContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link taskParser#localTaskDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalTaskDeclaration(taskParser.LocalTaskDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link taskParser#localTaskDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalTaskDeclaration(taskParser.LocalTaskDeclarationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link taskParser#localVarDeclarations}.
 	 * @param ctx the parse tree
 	 */
@@ -146,6 +156,16 @@ public interface taskListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionParameters(taskParser.FunctionParametersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCallParameters(taskParser.FunctionCallParametersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCallParameters(taskParser.FunctionCallParametersContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link taskParser#functionBody}.
 	 * @param ctx the parse tree
@@ -267,6 +287,16 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitForUpdate(taskParser.ForUpdateContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link taskParser#localVar}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVar(taskParser.LocalVarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link taskParser#localVar}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVar(taskParser.LocalVarContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link taskParser#assign}.
 	 * @param ctx the parse tree
 	 */
@@ -297,6 +327,16 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitReturnStatement(taskParser.ReturnStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link taskParser#invokeStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterInvokeStatement(taskParser.InvokeStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link taskParser#invokeStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitInvokeStatement(taskParser.InvokeStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link taskParser#parExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -326,6 +366,16 @@ public interface taskListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpression(taskParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link taskParser#operator1}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperator1(taskParser.Operator1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link taskParser#operator1}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperator1(taskParser.Operator1Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link taskParser#operator2}.
 	 * @param ctx the parse tree

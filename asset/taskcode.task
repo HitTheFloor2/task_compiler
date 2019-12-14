@@ -1,21 +1,57 @@
 package hitty;
 import sys.console;
-task test{
-    int a = 10;
-}
-task testplus{
-    int a;
-    int b;
-    char c;
-    char array[];
-    int b = 1 + (2+3*4/(233+1)+a);
-    func(){
-        if((1+1)!=1){
+task data{
+        string array[];
+        add(string s){
+            array.add(s);
+        }
+    }
+    task load{
+        task data;
+        _init_(){}
+        _input_(){}
+        _output_(){
+            this.data = handle.data;
+        }
+        _main_(){
+            string array[] = os.openfile("data").readAll();
+            string line = "";
+            int i = 0;
             while(1){
-                int a = 1;
-                continue;
+                line = array[i];
+                data.add(line);
+                if(line[0] == EOF) break;
+                i  = i + 1;
             }
         }
     }
-    
-}
+    task handle{
+        task data;
+        _init_(){}
+        _input_(){
+            this.data = handle.data;
+        }
+        _output_(){
+            this.data = write.data;
+        }
+        _main_(){
+            int i = 0;
+            for(i = 0;i < data.length;i++){
+                data[i] = data[i].reverse();
+            }
+        }
+    }
+    task write{
+        task data;
+        _output_(){
+            this.data = handle.data;
+        }
+        _init_(){}
+        _main_(){
+            int i = 0;
+            File file = os.openfile("data1");
+            for(i = 0;i < data.length;i++){
+                file.writeline(data[i]);
+            }
+        }
+    }

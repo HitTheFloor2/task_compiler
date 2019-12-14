@@ -87,6 +87,18 @@ public class taskBaseListener implements taskListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLocalTaskDeclaration(taskParser.LocalTaskDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLocalTaskDeclaration(taskParser.LocalTaskDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLocalVarDeclarations(taskParser.LocalVarDeclarationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -178,6 +190,18 @@ public class taskBaseListener implements taskListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunctionParameters(taskParser.FunctionParametersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionCallParameters(taskParser.FunctionCallParametersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionCallParameters(taskParser.FunctionCallParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -327,6 +351,18 @@ public class taskBaseListener implements taskListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLocalVar(taskParser.LocalVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLocalVar(taskParser.LocalVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAssign(taskParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -363,6 +399,18 @@ public class taskBaseListener implements taskListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterInvokeStatement(taskParser.InvokeStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInvokeStatement(taskParser.InvokeStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterParExpression(taskParser.ParExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -394,6 +442,18 @@ public class taskBaseListener implements taskListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpression(taskParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperator1(taskParser.Operator1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperator1(taskParser.Operator1Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
