@@ -990,6 +990,28 @@ public class taskParser extends Parser {
 	}
 
 	public static class FunctionParametersContext extends ParserRuleContext {
+		public FunctionParametersContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functionParameters; }
+	 
+		public FunctionParametersContext() { }
+		public void copyFrom(FunctionParametersContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FunctionParameters2NotExistContext extends FunctionParametersContext {
+		public FunctionParameters2NotExistContext(FunctionParametersContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionParameters2NotExist(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionParameters2NotExist(this);
+		}
+	}
+	public static class FunctionParameters2existContext extends FunctionParametersContext {
 		public List<TerminalNode> Identifier() { return getTokens(taskParser.Identifier); }
 		public TerminalNode Identifier(int i) {
 			return getToken(taskParser.Identifier, i);
@@ -1004,17 +1026,14 @@ public class taskParser extends Parser {
 		public QualifiedNameContext qualifiedName(int i) {
 			return getRuleContext(QualifiedNameContext.class,i);
 		}
-		public FunctionParametersContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_functionParameters; }
+		public FunctionParameters2existContext(FunctionParametersContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionParameters(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionParameters2exist(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionParameters(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionParameters2exist(this);
 		}
 	}
 
@@ -1027,6 +1046,7 @@ public class taskParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__14:
+				_localctx = new FunctionParameters2existContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(197);
@@ -1090,6 +1110,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case T__16:
+				_localctx = new FunctionParameters2NotExistContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(215);
@@ -1112,23 +1133,42 @@ public class taskParser extends Parser {
 	}
 
 	public static class FunctionCallParametersContext extends ParserRuleContext {
+		public FunctionCallParametersContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functionCallParameters; }
+	 
+		public FunctionCallParametersContext() { }
+		public void copyFrom(FunctionCallParametersContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FunctionCallParameters2NotExistContext extends FunctionCallParametersContext {
+		public FunctionCallParameters2NotExistContext(FunctionCallParametersContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionCallParameters2NotExist(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionCallParameters2NotExist(this);
+		}
+	}
+	public static class FunctionCallParameters2existContext extends FunctionCallParametersContext {
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public FunctionCallParametersContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_functionCallParameters; }
+		public FunctionCallParameters2existContext(FunctionCallParametersContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionCallParameters(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterFunctionCallParameters2exist(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionCallParameters(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitFunctionCallParameters2exist(this);
 		}
 	}
 
@@ -1141,6 +1181,7 @@ public class taskParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__14:
+				_localctx = new FunctionCallParameters2existContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(218);
@@ -1168,6 +1209,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case T__16:
+				_localctx = new FunctionCallParameters2NotExistContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(229);
@@ -1327,47 +1369,154 @@ public class taskParser extends Parser {
 	}
 
 	public static class StatementContext extends ParserRuleContext {
-		public BlockCodeContext blockCode() {
-			return getRuleContext(BlockCodeContext.class,0);
-		}
-		public LocalVarDeclarationContext localVarDeclaration() {
-			return getRuleContext(LocalVarDeclarationContext.class,0);
-		}
-		public IfStatementContext ifStatement() {
-			return getRuleContext(IfStatementContext.class,0);
-		}
-		public ForStatementContext forStatement() {
-			return getRuleContext(ForStatementContext.class,0);
-		}
-		public AssignStatementContext assignStatement() {
-			return getRuleContext(AssignStatementContext.class,0);
-		}
-		public WhileStatementContext whileStatement() {
-			return getRuleContext(WhileStatementContext.class,0);
-		}
-		public BreakStatementContext breakStatement() {
-			return getRuleContext(BreakStatementContext.class,0);
-		}
-		public ContinueStatementContext continueStatement() {
-			return getRuleContext(ContinueStatementContext.class,0);
-		}
-		public ReturnStatementContext returnStatement() {
-			return getRuleContext(ReturnStatementContext.class,0);
-		}
-		public InvokeStatementContext invokeStatement() {
-			return getRuleContext(InvokeStatementContext.class,0);
-		}
 		public StatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+	 
+		public StatementContext() { }
+		public void copyFrom(StatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class Statement2ifStatementContext extends StatementContext {
+		public IfStatementContext ifStatement() {
+			return getRuleContext(IfStatementContext.class,0);
+		}
+		public Statement2ifStatementContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2ifStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2ifStatement(this);
+		}
+	}
+	public static class Statement2returnStatementContext extends StatementContext {
+		public ReturnStatementContext returnStatement() {
+			return getRuleContext(ReturnStatementContext.class,0);
+		}
+		public Statement2returnStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2returnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2returnStatement(this);
+		}
+	}
+	public static class Statement2blockCodeContext extends StatementContext {
+		public BlockCodeContext blockCode() {
+			return getRuleContext(BlockCodeContext.class,0);
+		}
+		public Statement2blockCodeContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2blockCode(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2blockCode(this);
+		}
+	}
+	public static class Statement2breakStatementContext extends StatementContext {
+		public BreakStatementContext breakStatement() {
+			return getRuleContext(BreakStatementContext.class,0);
+		}
+		public Statement2breakStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2breakStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2breakStatement(this);
+		}
+	}
+	public static class Statement2localTaskDeclarationContext extends StatementContext {
+		public LocalVarDeclarationContext localVarDeclaration() {
+			return getRuleContext(LocalVarDeclarationContext.class,0);
+		}
+		public Statement2localTaskDeclarationContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2localTaskDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2localTaskDeclaration(this);
+		}
+	}
+	public static class Statement2continueStatementContext extends StatementContext {
+		public ContinueStatementContext continueStatement() {
+			return getRuleContext(ContinueStatementContext.class,0);
+		}
+		public Statement2continueStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2continueStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2continueStatement(this);
+		}
+	}
+	public static class Statement2whileStatementContext extends StatementContext {
+		public WhileStatementContext whileStatement() {
+			return getRuleContext(WhileStatementContext.class,0);
+		}
+		public Statement2whileStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2whileStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2whileStatement(this);
+		}
+	}
+	public static class Statement2forStatementContext extends StatementContext {
+		public ForStatementContext forStatement() {
+			return getRuleContext(ForStatementContext.class,0);
+		}
+		public Statement2forStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2forStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2forStatement(this);
+		}
+	}
+	public static class Statement2assignStatementContext extends StatementContext {
+		public AssignStatementContext assignStatement() {
+			return getRuleContext(AssignStatementContext.class,0);
+		}
+		public Statement2assignStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2assignStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2assignStatement(this);
+		}
+	}
+	public static class Statement2invokeStatementContext extends StatementContext {
+		public InvokeStatementContext invokeStatement() {
+			return getRuleContext(InvokeStatementContext.class,0);
+		}
+		public Statement2invokeStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterStatement2invokeStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitStatement2invokeStatement(this);
 		}
 	}
 
@@ -1379,6 +1528,7 @@ public class taskParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,24,_ctx) ) {
 			case 1:
+				_localctx = new Statement2blockCodeContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(245);
@@ -1386,6 +1536,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new Statement2localTaskDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(246);
@@ -1393,6 +1544,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new Statement2ifStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(247);
@@ -1400,6 +1552,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new Statement2forStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(248);
@@ -1407,6 +1560,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 5:
+				_localctx = new Statement2assignStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(249);
@@ -1414,6 +1568,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 6:
+				_localctx = new Statement2whileStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(250);
@@ -1421,6 +1576,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 7:
+				_localctx = new Statement2breakStatementContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(251);
@@ -1428,6 +1584,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 8:
+				_localctx = new Statement2continueStatementContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(252);
@@ -1435,6 +1592,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 9:
+				_localctx = new Statement2returnStatementContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
 				setState(253);
@@ -1442,6 +1600,7 @@ public class taskParser extends Parser {
 				}
 				break;
 			case 10:
+				_localctx = new Statement2invokeStatementContext(_localctx);
 				enterOuterAlt(_localctx, 10);
 				{
 				setState(254);
@@ -2218,38 +2377,163 @@ public class taskParser extends Parser {
 	}
 
 	public static class ExpressionContext extends ParserRuleContext {
-		public Operator1Context operator1() {
-			return getRuleContext(Operator1Context.class,0);
+		public ExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
 		}
+		@Override public int getRuleIndex() { return RULE_expression; }
+	 
+		public ExpressionContext() { }
+		public void copyFrom(ExpressionContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class Expression2CharContext extends ExpressionContext {
+		public TerminalNode Char() { return getToken(taskParser.Char, 0); }
+		public Expression2CharContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression2Char(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression2Char(this);
+		}
+	}
+	public static class ExpOp2expContext extends ExpressionContext {
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public LocalVarContext localVar() {
-			return getRuleContext(LocalVarContext.class,0);
-		}
-		public AssignContext assign() {
-			return getRuleContext(AssignContext.class,0);
-		}
-		public TerminalNode Char() { return getToken(taskParser.Char, 0); }
-		public TerminalNode Int() { return getToken(taskParser.Int, 0); }
-		public TerminalNode String() { return getToken(taskParser.String, 0); }
 		public Operator2Context operator2() {
 			return getRuleContext(Operator2Context.class,0);
 		}
-		public ExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expression; }
+		public ExpOp2expContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpOp2exp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression(this);
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpOp2exp(this);
+		}
+	}
+	public static class Expression2localVarContext extends ExpressionContext {
+		public LocalVarContext localVar() {
+			return getRuleContext(LocalVarContext.class,0);
+		}
+		public Expression2localVarContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression2localVar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression2localVar(this);
+		}
+	}
+	public static class Expression2StringContext extends ExpressionContext {
+		public TerminalNode String() { return getToken(taskParser.String, 0); }
+		public Expression2StringContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression2String(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression2String(this);
+		}
+	}
+	public static class ExpOp1Context extends ExpressionContext {
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public Operator1Context operator1() {
+			return getRuleContext(Operator1Context.class,0);
+		}
+		public ExpOp1Context(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpOp1(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpOp1(this);
+		}
+	}
+	public static class Op1expContext extends ExpressionContext {
+		public Operator1Context operator1() {
+			return getRuleContext(Operator1Context.class,0);
+		}
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public Op1expContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterOp1exp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitOp1exp(this);
+		}
+	}
+	public static class ExpressionWithParenthesesContext extends ExpressionContext {
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public ExpressionWithParenthesesContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpressionWithParentheses(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpressionWithParentheses(this);
+		}
+	}
+	public static class Expression2IntContext extends ExpressionContext {
+		public TerminalNode Int() { return getToken(taskParser.Int, 0); }
+		public Expression2IntContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression2Int(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression2Int(this);
+		}
+	}
+	public static class ExpressionsContext extends ExpressionContext {
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public ExpressionsContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpressions(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpressions(this);
+		}
+	}
+	public static class Expression2assignContext extends ExpressionContext {
+		public AssignContext assign() {
+			return getRuleContext(AssignContext.class,0);
+		}
+		public Expression2assignContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).enterExpression2assign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof taskListener ) ((taskListener)listener).exitExpression2assign(this);
 		}
 	}
 
@@ -2273,6 +2557,10 @@ public class taskParser extends Parser {
 			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
 			case 1:
 				{
+				_localctx = new Op1expContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
 				setState(340);
 				operator1();
 				setState(341);
@@ -2281,6 +2569,9 @@ public class taskParser extends Parser {
 				break;
 			case 2:
 				{
+				_localctx = new ExpressionWithParenthesesContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(343);
 				match(T__14);
 				setState(344);
@@ -2291,30 +2582,45 @@ public class taskParser extends Parser {
 				break;
 			case 3:
 				{
+				_localctx = new Expression2localVarContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(347);
 				localVar();
 				}
 				break;
 			case 4:
 				{
+				_localctx = new Expression2assignContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(348);
 				assign();
 				}
 				break;
 			case 5:
 				{
+				_localctx = new Expression2CharContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(349);
 				match(Char);
 				}
 				break;
 			case 6:
 				{
+				_localctx = new Expression2IntContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(350);
 				match(Int);
 				}
 				break;
 			case 7:
 				{
+				_localctx = new Expression2StringContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(351);
 				match(String);
 				}
@@ -2334,7 +2640,7 @@ public class taskParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
 					case 1:
 						{
-						_localctx = new ExpressionContext(_parentctx, _parentState);
+						_localctx = new ExpOp2expContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(354);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
@@ -2346,7 +2652,7 @@ public class taskParser extends Parser {
 						break;
 					case 2:
 						{
-						_localctx = new ExpressionContext(_parentctx, _parentState);
+						_localctx = new ExpOp1Context(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(358);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
@@ -2356,7 +2662,7 @@ public class taskParser extends Parser {
 						break;
 					case 3:
 						{
-						_localctx = new ExpressionContext(_parentctx, _parentState);
+						_localctx = new ExpressionsContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(360);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");

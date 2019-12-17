@@ -147,25 +147,53 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitFunctionModifier(taskParser.FunctionModifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link taskParser#functionParameters}.
+	 * Enter a parse tree produced by the {@code functionParameters2exist}
+	 * labeled alternative in {@link taskParser#functionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionParameters(taskParser.FunctionParametersContext ctx);
+	void enterFunctionParameters2exist(taskParser.FunctionParameters2existContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link taskParser#functionParameters}.
+	 * Exit a parse tree produced by the {@code functionParameters2exist}
+	 * labeled alternative in {@link taskParser#functionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionParameters(taskParser.FunctionParametersContext ctx);
+	void exitFunctionParameters2exist(taskParser.FunctionParameters2existContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link taskParser#functionCallParameters}.
+	 * Enter a parse tree produced by the {@code functionParameters2NotExist}
+	 * labeled alternative in {@link taskParser#functionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionCallParameters(taskParser.FunctionCallParametersContext ctx);
+	void enterFunctionParameters2NotExist(taskParser.FunctionParameters2NotExistContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link taskParser#functionCallParameters}.
+	 * Exit a parse tree produced by the {@code functionParameters2NotExist}
+	 * labeled alternative in {@link taskParser#functionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionCallParameters(taskParser.FunctionCallParametersContext ctx);
+	void exitFunctionParameters2NotExist(taskParser.FunctionParameters2NotExistContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionCallParameters2exist}
+	 * labeled alternative in {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCallParameters2exist(taskParser.FunctionCallParameters2existContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionCallParameters2exist}
+	 * labeled alternative in {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCallParameters2exist(taskParser.FunctionCallParameters2existContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code functionCallParameters2NotExist}
+	 * labeled alternative in {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCallParameters2NotExist(taskParser.FunctionCallParameters2NotExistContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code functionCallParameters2NotExist}
+	 * labeled alternative in {@link taskParser#functionCallParameters}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCallParameters2NotExist(taskParser.FunctionCallParameters2NotExistContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link taskParser#functionBody}.
 	 * @param ctx the parse tree
@@ -197,15 +225,125 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitBlockStatement(taskParser.BlockStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link taskParser#statement}.
+	 * Enter a parse tree produced by the {@code statement2blockCode}
+	 * labeled alternative in {@link taskParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatement(taskParser.StatementContext ctx);
+	void enterStatement2blockCode(taskParser.Statement2blockCodeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link taskParser#statement}.
+	 * Exit a parse tree produced by the {@code statement2blockCode}
+	 * labeled alternative in {@link taskParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatement(taskParser.StatementContext ctx);
+	void exitStatement2blockCode(taskParser.Statement2blockCodeContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2localTaskDeclaration}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2localTaskDeclaration(taskParser.Statement2localTaskDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2localTaskDeclaration}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2localTaskDeclaration(taskParser.Statement2localTaskDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2ifStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2ifStatement(taskParser.Statement2ifStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2ifStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2ifStatement(taskParser.Statement2ifStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2forStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2forStatement(taskParser.Statement2forStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2forStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2forStatement(taskParser.Statement2forStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2assignStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2assignStatement(taskParser.Statement2assignStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2assignStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2assignStatement(taskParser.Statement2assignStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2whileStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2whileStatement(taskParser.Statement2whileStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2whileStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2whileStatement(taskParser.Statement2whileStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2breakStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2breakStatement(taskParser.Statement2breakStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2breakStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2breakStatement(taskParser.Statement2breakStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2continueStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2continueStatement(taskParser.Statement2continueStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2continueStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2continueStatement(taskParser.Statement2continueStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2returnStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2returnStatement(taskParser.Statement2returnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2returnStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2returnStatement(taskParser.Statement2returnStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code statement2invokeStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement2invokeStatement(taskParser.Statement2invokeStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code statement2invokeStatement}
+	 * labeled alternative in {@link taskParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement2invokeStatement(taskParser.Statement2invokeStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link taskParser#ifStatement}.
 	 * @param ctx the parse tree
@@ -357,15 +495,125 @@ public interface taskListener extends ParseTreeListener {
 	 */
 	void exitExpressionList(taskParser.ExpressionListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link taskParser#expression}.
+	 * Enter a parse tree produced by the {@code expression2Char}
+	 * labeled alternative in {@link taskParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression(taskParser.ExpressionContext ctx);
+	void enterExpression2Char(taskParser.Expression2CharContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link taskParser#expression}.
+	 * Exit a parse tree produced by the {@code expression2Char}
+	 * labeled alternative in {@link taskParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression(taskParser.ExpressionContext ctx);
+	void exitExpression2Char(taskParser.Expression2CharContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expOp2exp}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpOp2exp(taskParser.ExpOp2expContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expOp2exp}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpOp2exp(taskParser.ExpOp2expContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expression2localVar}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression2localVar(taskParser.Expression2localVarContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expression2localVar}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression2localVar(taskParser.Expression2localVarContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expression2String}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression2String(taskParser.Expression2StringContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expression2String}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression2String(taskParser.Expression2StringContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expOp1}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpOp1(taskParser.ExpOp1Context ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expOp1}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpOp1(taskParser.ExpOp1Context ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Op1exp}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOp1exp(taskParser.Op1expContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Op1exp}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOp1exp(taskParser.Op1expContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expressionWithParentheses}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionWithParentheses(taskParser.ExpressionWithParenthesesContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expressionWithParentheses}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionWithParentheses(taskParser.ExpressionWithParenthesesContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expression2Int}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression2Int(taskParser.Expression2IntContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expression2Int}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression2Int(taskParser.Expression2IntContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expressions}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressions(taskParser.ExpressionsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expressions}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressions(taskParser.ExpressionsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expression2assign}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression2assign(taskParser.Expression2assignContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expression2assign}
+	 * labeled alternative in {@link taskParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression2assign(taskParser.Expression2assignContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link taskParser#operator1}.
 	 * @param ctx the parse tree

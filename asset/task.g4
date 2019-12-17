@@ -61,12 +61,12 @@ functionModifier
     : 'shared' | 'sync'
     ;
 functionParameters
-    : '(' (Type|qualifiedName) Identifier (',' (Type|qualifiedName) Identifier)* ')'
-    | '()'
+    : '(' (Type|qualifiedName) Identifier (',' (Type|qualifiedName) Identifier)* ')'    # functionParameters2exist
+    | '()'      # functionParameters2NotExist
     ;
 functionCallParameters
-    : '(' expression (',' expression)* ')'
-    | '()'
+    : '(' expression (',' expression)* ')'  # functionCallParameters2exist
+    | '()'  # functionCallParameters2NotExist
     ;
 
 functionBody
@@ -74,22 +74,22 @@ functionBody
     ;
 blockCode
     : '{' blockStatement* '}'
-    ; 
+    ;
 
 blockStatement
     : statement
     ;
 statement
-    : blockCode
-    | localVarDeclaration
-    | ifStatement
-    | forStatement
-    | assignStatement
-    | whileStatement
-    | breakStatement
-    | continueStatement
-    | returnStatement
-    | invokeStatement
+    : blockCode             # statement2blockCode
+    | localVarDeclaration   # statement2localTaskDeclaration
+    | ifStatement           # statement2ifStatement
+    | forStatement          # statement2forStatement
+    | assignStatement       # statement2assignStatement
+    | whileStatement        # statement2whileStatement
+    | breakStatement        # statement2breakStatement
+    | continueStatement     # statement2continueStatement
+    | returnStatement       # statement2returnStatement
+    | invokeStatement       # statement2invokeStatement
     ;
 ifStatement
     : 'if' parExpression statement ('else' statement)?
@@ -118,8 +118,8 @@ forUpdate
 localVar
     : Identifier ('[' localVar ']')? functionCallParameters? ('.' localVar)*
     ;
-assign 
-    : localVar '=' expression 
+assign
+    : localVar '=' expression
     ;
 assignStatement
     : assign ';'
@@ -137,16 +137,16 @@ expressionList
     : expression (',' expression)*
     ;
 expression
-    : expression operator2 expression
-    | expression operator1
-    | operator1 expression
-    | expression '[' expression ']'
-    | '(' expression ')' 
-    | localVar 
-    | assign
-    | Char
-    | Int
-    | String
+    : expression operator2 expression       # expOp2exp
+    | expression operator1                  # expOp1
+    | operator1 expression                  # Op1exp
+    | expression '[' expression ']'         # expressions
+    | '(' expression ')'                    # expressionWithParentheses
+    | localVar                              # expression2localVar
+    | assign                                # expression2assign
+    | Char                                  # expression2Char
+    | Int                                   # expression2Int
+    | String                                # expression2String
     ;
 
 operator1
@@ -158,10 +158,10 @@ operator2
     ;
 
 Type
-    : 'int' 
-    | 'char' 
+    : 'Int'
+    | 'Char'
     | 'float'
-    | 'string'
+    | 'String'
     ;
 
 Identifier : Letter (Letter|Int)*;

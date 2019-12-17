@@ -20,14 +20,32 @@ public class astTest {
             taskParser parser = new taskParser(tokens);
             ParseTree tree = parser.compilationUnit(); // parse
 
-            System.out.println(tree.toStringTree());
+
+
+            MTree mTree = new MTree();
+            recusivePrintTree(tree,mTree);
+            System.out.println(tree.toStringTree(parser));
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
-    public void recusivePrintTree(ParseTree tree){
-
+    public static String handleClassName(String s){
+        return null;
+    }
+    public static void recusivePrintTree(ParseTree tree,MTree mTree){
+        mTree.RuleName = tree.getClass().toString();
+        mTree.parseTree = tree;
+        if(tree.getChildCount() >= 0){
+            for(int i =0;i < tree.getChildCount();i++){
+                MTree mTreeChild = new MTree();
+                mTree.childNodeList.add(mTreeChild);
+                mTreeChild.parentNode = mTree;
+                recusivePrintTree(tree.getChild(i),mTreeChild);
+            }
+        }
+        //System.out.println(tree.toString());
+        //System.out.println(tree.getClass().toString());
     }
 }
